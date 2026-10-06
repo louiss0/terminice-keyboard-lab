@@ -26,15 +26,16 @@ problems. They must not be collapsed into one 'Windows bug'.**
    of Backspace. This is independent of platform once byte `8` reaches the
    reader.[S3] Six public component contracts reproduce it.
 3. **Lone Escape:** the shared decoder performs blocking lookahead, not a timed
-   peek. Real Windows VT-enabled input reproduces the wait; scripted EOF-based
-   input conceals it.[S1][S3][S4]
+   peek. Real Linux, macOS, and Windows VT-enabled input reproduce the wait;
+   scripted EOF-based input conceals it.[S1][S3][S4]
 4. **Unsupported sequence grammar:** Delete (`ESC [ 3 ~`) and modified Right
    (`ESC [ 1 ; 5 C`) return an Escape event in decoder tests. This is a shared
    limitation, not evidence that every widget advertises Delete support.[S3]
 
-Linux/macOS real-terminal verification is provided by the CI matrix; see the
-runtime evidence section below. A universal physical Backspace or Enter mapping
-cannot be inferred from these tests.
+All three CI jobs passed, with real-terminal evidence confirming both shared
+failures on Linux/macOS as well as Windows. See the runtime evidence below.
+A universal physical Backspace or Enter mapping cannot be inferred from these
+tests.
 
 ## Local runtime evidence: Windows
 
@@ -153,10 +154,37 @@ The workflow runs the same byte/component tests and real terminal probe on
 `ubuntu-latest`, `macos-latest`, and `windows-latest`, plus Windows VT comparison.
 Each job uploads JSON evidence even on failure.
 
-Initial publication: Linux/macOS results pending. The shared decoder findings
-are already source-supported and byte-test-confirmed; the physical frequency of
-byte `8` on different emulators remains outside the claim. Update this section
-with completed CI measurements rather than treating a planned matrix as proof.
+Verified by [run 37536083091](https://github.com/louiss0/terminice-keyboard-lab/actions/runs/37536083091)
+at lab commit `68c2d9a`: **all three jobs passed**, with no unexpected outcomes.
+
+| Runtime/input mode | Experiments | Intended outcomes | Known defective outcomes |
+| --- | --- | --- | --- |
+| Linux PTY (kernel 6.17, glibc 2.39) | 27 | 18 | 9 |
+| macOS 26.6.2 arm64 PTY | 27 | 18 | 9 |
+| Windows Server 2025 ConPTY, default | 27 | 7 | 20 |
+| Windows Server 2025 ConPTY, VT input | 27 | 18 | 9 |
+
+Across these four paths, **108 real prompt experiments** matched their explicit
+baselines. Each OS also passed 30 characterization tests and verified exactly
+six failing desired contracts. Green CI means the diagnosis reproduced, not
+that the pinned dependency is fixed.
+
+Linux/macOS's nine known failures are the six byte-8 editing cases and three
+lone-Escape waits. All basic-arrow fixtures work, as does the Mamba fixture
+using DEL `127`. Both CR and LF fixtures submit successfully. Raw measurements
+show injected CR `13` arriving as LF `10` on those POSIX PTYs; disabling line
+mode does not eliminate every inherited input translation.
+
+The checked-in [Linux raw](evidence/raw-linux.json), [Linux prompts](evidence/terminal-linux.json),
+[macOS raw](evidence/raw-macos.json), and [macOS prompts](evidence/terminal-macos.json)
+reports preserve the actual CI observations. Windows runner evidence is also
+available in the run's uploaded artifacts; local Windows comparisons are
+checked in separately.
+
+The physical frequency of byte `8` on different emulators remains outside the
+claim. A common DEL-producing Backspace can work on Unix while Ctrl+H/BS still
+exercises the shared defect. Missing Windows virtual-input setup is specific to
+the Windows console API path; the core byte-8 and Escape faults are not.
 
 ## Proposed repair boundaries (not implemented)
 

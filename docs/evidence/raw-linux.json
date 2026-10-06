@@ -1,0 +1,107 @@
+{
+  "generated_utc": "2026-10-06T21:45:56.786664+00:00",
+  "transport": "POSIX PTY",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "windows_virtual_input": false,
+  "results": [
+    {
+      "key": "backspace-8",
+      "injected_bytes": [
+        8
+      ],
+      "delivered_bytes": [
+        8
+      ]
+    },
+    {
+      "key": "backspace-127",
+      "injected_bytes": [
+        127
+      ],
+      "delivered_bytes": [
+        127
+      ]
+    },
+    {
+      "key": "right",
+      "injected_bytes": [
+        27,
+        91,
+        67
+      ],
+      "delivered_bytes": [
+        27,
+        91,
+        67
+      ]
+    },
+    {
+      "key": "left",
+      "injected_bytes": [
+        27,
+        91,
+        68
+      ],
+      "delivered_bytes": [
+        27,
+        91,
+        68
+      ]
+    },
+    {
+      "key": "down",
+      "injected_bytes": [
+        27,
+        91,
+        66
+      ],
+      "delivered_bytes": [
+        27,
+        91,
+        66
+      ]
+    },
+    {
+      "key": "delete",
+      "injected_bytes": [
+        27,
+        91,
+        51,
+        126
+      ],
+      "delivered_bytes": [
+        27,
+        91,
+        51,
+        126
+      ]
+    },
+    {
+      "key": "enter-cr",
+      "injected_bytes": [
+        13
+      ],
+      "delivered_bytes": [
+        10
+      ]
+    },
+    {
+      "key": "enter-lf",
+      "injected_bytes": [
+        10
+      ],
+      "delivered_bytes": [
+        10
+      ]
+    },
+    {
+      "key": "escape",
+      "injected_bytes": [
+        27
+      ],
+      "delivered_bytes": [
+        27
+      ]
+    }
+  ]
+}

@@ -18,7 +18,9 @@ terminal. Record the returned boolean, not just whether Enter exits the prompt.
 In line mode, the system commonly buffers a whole line and performs editing.
 The application may never see Backspace as a byte. On POSIX, disabling `ICANON`
 changes to noncanonical input; erase/kill processing no longer performs that
-editing. Dart exposes this through `stdin.lineMode`.[1][2]
+editing. Dart exposes this through `stdin.lineMode`.[1][2] Disabling line mode is not the
+same as clearing every input translation: the Linux/macOS raw reports show
+injected CR `13` still arriving as LF `10`.
 
 In a rich prompt, the application reads keys as they arrive and owns editing.
 Disabling echo stops the system from printing each typed character; it does not

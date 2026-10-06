@@ -30,13 +30,18 @@ A successful process exit does not prove a key worked. This lab checks the
 | --- | --- | --- |
 | Missing Windows virtual-terminal input mode | Windows console byte delivery | Real ConPTY input loses arrows; enabling `0x0200` restores them |
 | Byte `8` becomes generic Ctrl+H before the Backspace branch | Shared decoder, not Windows-specific | Six component contracts fail with actual byte `8` supplied |
-| Standalone Escape waits for more input | Shared decoder when ESC is delivered | Real Windows virtual-input prompts time out; code uses blocking lookahead |
+| Standalone Escape waits for more input | Shared decoder when ESC is delivered | Real Linux, macOS, and Windows virtual-input prompts time out |
 | Delete / modified-arrow sequences become Escape | Shared decoder limitation | Decoder characterization tests, not a promise that every component supports Delete |
 
-Linux/macOS runtime results are verified by the [three-platform CI workflow](.github/workflows/verify.yml).
-Until those jobs have completed, they are not evidence of a particular desktop
-terminal's behavior. See [the full investigation](docs/investigation.md) for
-source links, caveats, and component impact.
+**Verified on Windows, Linux, and macOS:** all three jobs in the
+[first CI run](https://github.com/louiss0/terminice-keyboard-lab/actions/runs/37536083091)
+passed, checking exact known outcomes through real pseudo-terminals. Linux/macOS
+also reproduce the six byte-8 failures and three standalone-Escape waits; their
+arrows and Mamba scaffolder fixture work. This does not imply identical physical
+key mappings in every desktop terminal.
+
+See [the full investigation](docs/investigation.md) for source links, caveats,
+and component impact.
 
 ## Start here
 
@@ -126,7 +131,7 @@ On Windows:
 python scripts/terminal_probe.py --virtual-input --check-baseline --report results/terminal-virtual.json
 ```
 
-These run **27 experiments across 14 Terminice component APIs**, plus Mamba's
+These run **27 experiments spanning 13 Terminice component APIs**, plus Mamba's
 real description/install/Git prompt adapters. For Mamba, only the scaffolder is
 replaced with a recorder: **no project files, dependency installs, or Git
 initialization occur**.
@@ -165,7 +170,7 @@ that isolated session; automated probes apply a timeout and clean up the child.
 3. [`test/characterization_test.dart`](test/characterization_test.dart)
 4. [`contracts/backspace_contract.dart`](contracts/backspace_contract.dart)
 5. [`scripts/terminal_probe.py`](scripts/terminal_probe.py)
-6. [Checked-in Windows evidence](docs/evidence/)
+6. [Checked-in Windows, Linux, and macOS evidence](docs/evidence/)
 
 ## Safety and interpretation
 
