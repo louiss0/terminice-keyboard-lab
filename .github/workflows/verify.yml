@@ -1,0 +1,56 @@
+name: Keyboard lab
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    name: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '3.13.2'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned Dart dependencies
+        run: dart pub get --enforce-lockfile
+      - name: Install Python terminal transport
+        run: python -m pip install -r scripts/requirements.txt
+      - name: Check formatting
+        run: dart format --output=none --set-exit-if-changed .
+      - name: Analyze
+        run: dart analyze --fatal-infos
+      - name: Characterize the pinned release
+        run: dart test --reporter expanded
+      - name: Verify exactly six known contract failures
+        run: python scripts/check_contract_failures.py
+      - name: Measure delivered terminal bytes
+        run: python scripts/raw_probe.py --report results/raw-default.json
+      - name: Check actual prompt outcomes against pinned baseline
+        run: python scripts/terminal_probe.py --check-baseline --report results/terminal-default.json
+      - name: Windows virtual-input byte measurement
+        if: runner.os == 'Windows'
+        run: python scripts/raw_probe.py --virtual-input --report results/raw-virtual.json
+      - name: Windows virtual-input prompt comparison
+        if: runner.os == 'Windows'
+        run: python scripts/terminal_probe.py --virtual-input --check-baseline --report results/terminal-virtual.json
+      - name: Upload evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: keyboard-evidence-${{ matrix.os }}
+          path: results/
+          if-no-files-found: warn

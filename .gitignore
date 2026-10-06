@@ -1,0 +1,7 @@
+.dart_tool/
+.packages
+build/
+__pycache__/
+*.pyc
+.venv/
+results/

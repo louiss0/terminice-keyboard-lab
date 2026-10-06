@@ -1,0 +1,543 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.9",
+  "dart": "Dart SDK version: 3.13.2 (stable) (Tue Aug 25 01:01:12 2026 -0700) on \"windows_x64\"",
+  "windows_virtual_input": true,
+  "check_baseline": true,
+  "results": [
+    {
+      "case": "text-bs8",
+      "component": "text",
+      "observation": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "text-bs127",
+      "component": "text",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "password-bs8",
+      "component": "password",
+      "observation": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "password-bs127",
+      "component": "password",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "form-bs8",
+      "component": "form",
+      "observation": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "form-bs127",
+      "component": "form",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "multiline-bs8",
+      "component": "multiline",
+      "observation": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "multiline-bs127",
+      "component": "multiline",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "search-filter-bs8",
+      "component": "search-filter",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "probeX"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "probe"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "probeX"
+        ]
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "search-filter-bs127",
+      "component": "search-filter",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "probe"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "probe"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "probe"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "palette-bs8",
+      "component": "palette",
+      "observation": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probeX"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "palette-bs127",
+      "component": "palette",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "confirm-arrows",
+      "component": "confirm",
+      "observation": {
+        "state": "returned",
+        "value": false
+      },
+      "intended": {
+        "state": "returned",
+        "value": false
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": false
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "slider-arrows",
+      "component": "slider",
+      "observation": {
+        "state": "returned",
+        "value": 6
+      },
+      "intended": {
+        "state": "returned",
+        "value": 6
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": 6
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "rating-arrows",
+      "component": "rating",
+      "observation": {
+        "state": "returned",
+        "value": 4
+      },
+      "intended": {
+        "state": "returned",
+        "value": 4
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": 4
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "search-arrows",
+      "component": "search",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "checkbox-arrows",
+      "component": "checkbox",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "grid-arrows",
+      "component": "grid",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "tags-arrows",
+      "component": "tags",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "choice-arrows",
+      "component": "choice",
+      "observation": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "intended": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": [
+          "Beta"
+        ]
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "text-arrows",
+      "component": "text",
+      "observation": {
+        "state": "returned",
+        "value": "abc"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "abc"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "abc"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "text-enter-cr",
+      "component": "text",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "text-enter-lf",
+      "component": "text",
+      "observation": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "intended": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": "probe"
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    },
+    {
+      "case": "text-lone-escape",
+      "component": "text",
+      "observation": {
+        "state": "timeout"
+      },
+      "intended": {
+        "state": "returned",
+        "value": null
+      },
+      "pinned_baseline": {
+        "state": "timeout"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "confirm-lone-escape",
+      "component": "confirm",
+      "observation": {
+        "state": "timeout"
+      },
+      "intended": {
+        "state": "returned",
+        "value": true
+      },
+      "pinned_baseline": {
+        "state": "timeout"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "search-lone-escape",
+      "component": "search",
+      "observation": {
+        "state": "timeout"
+      },
+      "intended": {
+        "state": "returned",
+        "value": []
+      },
+      "pinned_baseline": {
+        "state": "timeout"
+      },
+      "verdict": "known-defect",
+      "baseline_matches": true
+    },
+    {
+      "case": "mamba",
+      "component": "mamba",
+      "observation": {
+        "state": "returned",
+        "value": {
+          "description": "probe",
+          "install": false,
+          "git": true
+        }
+      },
+      "intended": {
+        "state": "returned",
+        "value": {
+          "description": "probe",
+          "install": false,
+          "git": true
+        }
+      },
+      "pinned_baseline": {
+        "state": "returned",
+        "value": {
+          "description": "probe",
+          "install": false,
+          "git": true
+        }
+      },
+      "verdict": "correct",
+      "baseline_matches": true
+    }
+  ]
+}

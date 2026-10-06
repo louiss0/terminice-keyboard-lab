@@ -1,0 +1,86 @@
+{
+  "generated_utc": "2026-10-06T21:38:09.947545+00:00",
+  "transport": "Windows ConPTY",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "windows_virtual_input": false,
+  "results": [
+    {
+      "key": "backspace-8",
+      "injected_bytes": [
+        8
+      ],
+      "delivered_bytes": [
+        127
+      ]
+    },
+    {
+      "key": "backspace-127",
+      "injected_bytes": [
+        127
+      ],
+      "delivered_bytes": [
+        8
+      ]
+    },
+    {
+      "key": "right",
+      "injected_bytes": [
+        27,
+        91,
+        67
+      ],
+      "delivered_bytes": []
+    },
+    {
+      "key": "left",
+      "injected_bytes": [
+        27,
+        91,
+        68
+      ],
+      "delivered_bytes": []
+    },
+    {
+      "key": "down",
+      "injected_bytes": [
+        27,
+        91,
+        66
+      ],
+      "delivered_bytes": []
+    },
+    {
+      "key": "delete",
+      "injected_bytes": [
+        27,
+        91,
+        51,
+        126
+      ],
+      "delivered_bytes": []
+    },
+    {
+      "key": "enter-cr",
+      "injected_bytes": [
+        13
+      ],
+      "delivered_bytes": [
+        13
+      ]
+    },
+    {
+      "key": "enter-lf",
+      "injected_bytes": [
+        10
+      ],
+      "delivered_bytes": []
+    },
+    {
+      "key": "escape",
+      "injected_bytes": [
+        27
+      ],
+      "delivered_bytes": []
+    }
+  ]
+}
